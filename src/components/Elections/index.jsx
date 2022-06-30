@@ -15,6 +15,7 @@ export default function Elections({ city = {} }) {
   const qtdCandidatos = () => election.length || 0;
 
   useEffect(() => {
+    setLoading(true);
     getElectionByCity(id)
       .then(({ data }) => {
         let electionCity = data;
@@ -62,7 +63,7 @@ export default function Elections({ city = {} }) {
   return (
     <>
       {loading ? (
-        <div className="flex items-center justify-center mx-4">
+        <div className="flex items-center justify-center m-4">
           <Loading />
         </div>
       ) : (
